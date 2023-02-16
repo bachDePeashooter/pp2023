@@ -24,7 +24,7 @@ def mkcourse():
     x = input()
     print('There are ' + x +' courses')
     for i in range(int(x)):
-        print('Enter the info of course number ' + str(i+1))
+        print('Enter the info of the course number ' + str(i+1))
         print('Name: ')
         name = input()
         courses.append(name)
@@ -44,7 +44,7 @@ def listcourse():
     for f in range(0,len(courses),2):
         print(courses[f] + '         ' + courses[f+1])
 
-def slcourse():
+def selectcourse():
     print('--------------------------------')
     for p in range(0,len(courses),2):
         p = int(p)
@@ -54,17 +54,17 @@ def slcourse():
     choice = input()
     choice = int(choice)
     print('You have chose  ' + courses[choice-1])
+    ch = (choice-1)*len(student)//3
 
     print('--------------------------------')
     print('Name' + '  ' + 'Student ID' + '  ' + 'Mark')
-    s = (choice-1)*(len(student)//3)
-    y = 0
-    for t in range(s,len(student),1):
-        print(student[y] + '     ' + student[y+1] + '         ' + marks[t])
-        y = y + 3
+    for i in range(0,len(student),3):
+        print(student[i] + '  ' + student[i+1] + '        ' + marks[ch])
+        ch = ch + 1
 
 
-def ismark():
+
+def insertmark():
     for n in range(0,len(courses),2):
         print("Enter mark of " + courses[n])
         for m in range(0,len(student),3):
@@ -74,8 +74,8 @@ def ismark():
 
 mkstudent()
 mkcourse()
-ismark()
-slcourse()
+insertmark()
+selectcourse()
             
 
 
